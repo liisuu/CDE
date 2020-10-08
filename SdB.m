@@ -1,16 +1,18 @@
-function [Flag, V] = SdB(E,d)
+function [Flag, V,r] = SdB(E,d)
 % Function SdB(E,d) searches the feasibility of fixed (d,K)-Basis for given packet
 % distribution matrix
 % Inputs: E: packet distribution matrix
 %         d: parameter for (d,K)-Basis
 % Outputs: Flag: existence of (d,K)-Basis, "0" for No, "1" for Yes
 %          V: (d,K)-Basis
+%          r: rate vector
 
 
 
 Q = [];
 V = [];
 [N,K] = size(E);
+r = zeros(N,1);
 
 Flag = 0;
 
@@ -30,6 +32,7 @@ for i = 1:N
             for j = 1: length(nonzeroindex)-d
                 v_temp = zeros(1,K);
                 v_temp(nonzeroindex(j:j+d)) = 1;
+                r(i) = r(i)+1;
                 V = [V;v_temp];
             end
             Q = [Q;E(i,:)];
@@ -62,6 +65,7 @@ for i = 1:N
                         end
                         if IsBasisVector == 1
                             % found a feasible vector, add it to V
+                            r(i) = r(i)+1;
                             V = [V;v_temp];
                             if size(V,1) == K-d
                                 % found enough d-basis vectors
