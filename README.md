@@ -6,3 +6,7 @@ Script CCDE_Example.m shows how to use our algorithm MNRT.m to caculate the mimi
 Script CCDE_weighted_Example.m shows how to use our algorithm MNRT_weight.m to caculate the optimal rate vector and minimum weighted cost for cooperative data exchange with weighted cost problem over fully connected networks.
 
 Script SLO_example.m shows how to use our alogrithm MNRT_SLO.m to caculate the optimal rate for successive local omniscience.
+
+
+This work was supported in part by the Swiss National Science Foundation under Grant 169294 and Ecole Polytechnique Federale de Lausanne (EPFL).
+
